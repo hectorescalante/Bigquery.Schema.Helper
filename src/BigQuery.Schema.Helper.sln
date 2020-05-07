@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigQuery.Schema.Helper", "BigQuery.Schema.Helper\BigQuery.Schema.Helper.csproj", "{5A2D980B-9DAD-4C7F-A4C1-F01D7EE0DB6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigQuery.Schema.Helper.Test", "BigQuery.Schema.Helper.Test\BigQuery.Schema.Helper.Test.csproj", "{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A2D980B-9DAD-4C7F-A4C1-F01D7EE0DB6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2D980B-9DAD-4C7F-A4C1-F01D7EE0DB6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2D980B-9DAD-4C7F-A4C1-F01D7EE0DB6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2D980B-9DAD-4C7F-A4C1-F01D7EE0DB6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BAD07ACD-C32C-4322-9E9A-CDB2C2F98E2C}
+	EndGlobalSection
+EndGlobal
