@@ -11,10 +11,16 @@ BigQuery table creation and data insertion helper
   }
 ```
 ## Startup
+```
 services.AddBigQuerySchemaHelper(_configuration.GetSection("MyBigQuerySection"));
+```
 
 ## Table Creation
+```
 _ = await _bigQuerySchemaHelper.GetOrCreateTableAsync<MyLogClass>();
+```
 
 ## Rows Insertion
+```
 await _bigQuerySchemaHelper.InsertRowsAsync<MyLogClass>(MyLogClassList);
+```
