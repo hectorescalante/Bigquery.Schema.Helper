@@ -24,3 +24,10 @@ _ = await _bigQuerySchemaHelper.GetOrCreateTableAsync<MyLogClass>();
 ```
 await _bigQuerySchemaHelper.InsertRowsAsync<MyLogClass>(MyLogClassList);
 ```
+
+## Google Credential
+
+Required Roles/Permissions:
+
+- BigQuery Data Editor
+- BigQuery User
