@@ -5,7 +5,7 @@
     <LangVersion>8.0</LangVersion>
     <Authors>HectorEscalante</Authors>
     <Company>BDTG</Company>
-    <VersionPrefix>1.0.0</VersionPrefix>
+    <VersionPrefix>1.0.1</VersionPrefix>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>It's a helper for BigQuery's Table creation and data insertion.</Description>
   </PropertyGroup>
