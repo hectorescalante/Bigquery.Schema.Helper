@@ -43,7 +43,7 @@ namespace BigQuery.Schema.Helper.Test
       Assert.NotEmpty(row);
       Assert.Equal(100, row["Id"]);
       Assert.Equal("Test title", row["Title"]);
-      Assert.Equal(timestamp.ToString("u"), row["CreatedAt"]);
+      Assert.Equal(timestamp.ToString("s"), row["CreatedAt"]);
       Assert.Equal(true, row["IsActive"]);
       Assert.Equal("300.00", row["Amount"]);
       Assert.Collection((List<int>)row["ChildTraces"],
@@ -59,8 +59,8 @@ namespace BigQuery.Schema.Helper.Test
         item3 => { Assert.Equal("Value3", item3); }
       );
       Assert.Collection((List<string>)row["ModifiedAt"],
-        item1 => { Assert.Equal(timestamp.AddDays(-1).ToString("u"), item1); },
-        item2 => { Assert.Equal(timestamp.AddDays(-2).ToString("u"), item2); }
+        item1 => { Assert.Equal(timestamp.AddDays(-1).ToString("s"), item1); },
+        item2 => { Assert.Equal(timestamp.AddDays(-2).ToString("s"), item2); }
       );
       Assert.Collection((List<string>)row["Billing"],
         item1 => { Assert.Equal("1200.00", item1); },
@@ -73,7 +73,7 @@ namespace BigQuery.Schema.Helper.Test
       Assert.Equal(1, ((BigQueryInsertRow)row["Detail"])["Id"]);
       Assert.Equal("Test Description", ((BigQueryInsertRow)row["Detail"])["Description"]);
       Assert.Equal(true, ((BigQueryInsertRow)row["Detail"])["IsSuccesful"]);
-      Assert.Equal(timestamp.ToString("u"), ((BigQueryInsertRow)row["Detail"])["Timestamp"]);
+      Assert.Equal(timestamp.ToString("s"), ((BigQueryInsertRow)row["Detail"])["Timestamp"]);
 
       Assert.Collection((List<BigQueryInsertRow>)row["History"],
         item1 =>
@@ -109,7 +109,7 @@ namespace BigQuery.Schema.Helper.Test
           Assert.Equal(5, item5["Id"]);
           Assert.NotNull(item5["Description"]);
           Assert.False((bool)item5["IsSuccesful"]);
-          Assert.Equal(timestamp.ToString("u"), item5["Timestamp"]);
+          Assert.Equal(timestamp.ToString("s"), item5["Timestamp"]);
         }
       );
 
