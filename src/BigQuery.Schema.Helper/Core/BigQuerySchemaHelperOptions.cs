@@ -1,4 +1,4 @@
-﻿namespace BigQuery.Schema.Helper
+﻿namespace BigQuery.Schema.Helper.Core
 {
   public class BigQuerySchemaHelperOptions
   {

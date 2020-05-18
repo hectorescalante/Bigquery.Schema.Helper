@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace BigQuery.Schema.Helper
+namespace BigQuery.Schema.Helper.Core.Abstractions
 {
   public interface IBigQuerySchemaHelper
   {

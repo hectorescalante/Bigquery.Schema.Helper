@@ -1,9 +1,10 @@
 ﻿using BigQuery.Schema.Helper.Core;
+using BigQuery.Schema.Helper.Core.Abstractions;
 using BigQuery.Schema.Helper.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BigQuery.Schema.Helper
+namespace BigQuery.Schema.Helper.Core
 {
   public static class BigquerySchemaHelperExtensions
   {

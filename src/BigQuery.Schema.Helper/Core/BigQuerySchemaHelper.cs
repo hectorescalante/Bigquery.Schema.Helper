@@ -1,8 +1,8 @@
-﻿using Google.Cloud.BigQuery.V2;
+﻿using BigQuery.Schema.Helper.Core.Abstractions;
+using Google.Cloud.BigQuery.V2;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;

@@ -1,4 +1,5 @@
 ﻿using BigQuery.Schema.Helper.Core;
+using BigQuery.Schema.Helper.Core.Abstractions;
 using Google.Apis.Auth.OAuth2;
 using Google.Cloud.BigQuery.V2;
 using System.Collections.Concurrent;
