@@ -102,8 +102,8 @@ namespace BigQuery.Schema.Helper.Core
     }
 
     private static string FormatDecimal(decimal number) =>
-      number.ToString("F", CultureInfo.CurrentCulture);
+      number.ToString("F", CultureInfo.InvariantCulture);
     private static string FormatDateTime(DateTime date) =>
-      date.ToString("u", CultureInfo.InvariantCulture);
+      date.ToString("s", CultureInfo.InvariantCulture);
   }
 }
