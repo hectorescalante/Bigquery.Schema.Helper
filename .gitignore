@@ -350,3 +350,4 @@ MigrationBackup/
 .ionide/
 /src/NDependOut
 /src/BigQuery.Schema.Helper.ndproj
+/src/BigQuery.Schema.Helper.Sample/Properties/launchSettings.json

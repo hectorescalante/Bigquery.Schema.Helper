@@ -12,10 +12,9 @@ namespace BigQuery.Schema.Helper.Test
     public void TestGetSchemaBuilder_WithoutInstance_ShouldReturnAnInstanceOfSchemaBuilder()
     {
       //Arrange
-      var schemaBuilder = BigQuerySchemaBuilder.GetSchemaBuilder(typeof(BusinessTraceData));
 
       //Act
-      var schema = schemaBuilder.Build();
+      var schema = BigQuerySchemaBuilder.GetSchemaBuilder(typeof(BusinessTraceData)).Build();
 
       //Assert
       Assert.True(schema.Fields.Count > 0);
@@ -26,6 +25,7 @@ namespace BigQuery.Schema.Helper.Test
       Assert.Contains(schema.Fields, f => f.Type.Equals("DateTime", StringComparison.InvariantCultureIgnoreCase));
       Assert.Contains(schema.Fields, f => f.Type.Equals("Record", StringComparison.InvariantCultureIgnoreCase));
       Assert.Contains(schema.Fields, f => f.Mode.Equals("Repeated", StringComparison.InvariantCultureIgnoreCase));
+      Assert.DoesNotContain(schema.Fields, f => f.Name.Equals("PrivateDetail", StringComparison.InvariantCultureIgnoreCase));
     }
 
     [Fact]
@@ -68,12 +68,14 @@ namespace BigQuery.Schema.Helper.Test
         item3 => { Assert.Equal("4800.00", item3); },
         item4 => { Assert.Equal("9600.00", item4); }
       );
+
       Assert.Equal(typeof(BigQueryInsertRow), row["Detail"].GetType());
       Assert.NotEmpty((BigQueryInsertRow)row["Detail"]);
       Assert.Equal(1, ((BigQueryInsertRow)row["Detail"])["Id"]);
       Assert.Equal("Test Description", ((BigQueryInsertRow)row["Detail"])["Description"]);
       Assert.Equal(true, ((BigQueryInsertRow)row["Detail"])["IsSuccesful"]);
       Assert.Equal(timestamp.ToString("s"), ((BigQueryInsertRow)row["Detail"])["Timestamp"]);
+      Assert.Throws<KeyNotFoundException>(() => (BigQueryInsertRow)row["PrivateDetail"]);
 
       Assert.Collection((List<BigQueryInsertRow>)row["History"],
         item1 =>
@@ -110,6 +112,14 @@ namespace BigQuery.Schema.Helper.Test
           Assert.NotNull(item5["Description"]);
           Assert.False((bool)item5["IsSuccesful"]);
           Assert.Equal(timestamp.ToString("s"), item5["Timestamp"]);
+        },
+        item6 =>
+        {
+          Assert.Equal(6, item6["Id"]);
+          Assert.NotNull(item6["Description"]);
+          Assert.False((bool)item6["IsSuccesful"]);
+          Assert.Equal(timestamp.ToString("s"), item6["Timestamp"]);
+          Assert.Throws<KeyNotFoundException>(() => item6["UpdatedById"]);
         }
       );
 
@@ -282,7 +292,33 @@ namespace BigQuery.Schema.Helper.Test
           ModifiedAt = new List<DateTime>() { DateTime.Now.AddDays(-1), DateTime.Now.AddDays(-2), DateTime.Now.AddDays(-3) },
           Results = new List<bool>() { true, false, true, false },
           Billing = new List<decimal>() { 1200.00M, 2400.00M, 4800.00M, 9600.00M},
-          Detail = new BusinessTraceDataDetail(){ Id = 11, Description = "Test Description", IsSuccesful = true, Timestamp = DateTime.Now }
+          Detail = new BusinessTraceDataDetail(){ Id = 11, Description = "Test Description", IsSuccesful = true, Timestamp = DateTime.Now, UpdatedById = "UserId" }
+        }
+      };
+      yield return new object[]
+      {
+        new BusinessTraceData()
+        {
+          Id = 100,
+          Title = "Test title",
+          CreatedAt = DateTime.Now,
+          IsActive = true,
+          Amount = 300.00M,
+          ChildTraces = new List<int>(){ 1, 2, 3, 4, 5 },
+          Tags = new List<string>(){ "Value1", "Value2", "Value3" },
+          ModifiedAt = new List<DateTime>() { DateTime.Now.AddDays(-1), DateTime.Now.AddDays(-2), DateTime.Now.AddDays(-3) },
+          Results = new List<bool>() { true, false, true, false },
+          Billing = new List<decimal>() { 1200.00M, 2400.00M, 4800.00M, 9600.00M},
+          Detail = new BusinessTraceDataDetail(){ Id = 1, Description = "Test Description", IsSuccesful = true, Timestamp = DateTime.Now, UpdatedById = "UserId" },
+          History = new List<BusinessTraceDataDetail>()
+          {
+            new BusinessTraceDataDetail(),
+            new BusinessTraceDataDetail() { Id = 2 },
+            new BusinessTraceDataDetail() { Id = 2, Description = "Test Description" },
+            new BusinessTraceDataDetail() { Id = 2, Description = "Test Description", IsSuccesful = false },
+            new BusinessTraceDataDetail() { Id = 2, Description = "Test Description", IsSuccesful = false, Timestamp = DateTime.UtcNow },
+            new BusinessTraceDataDetail() { Id = 2, Description = "Test Description", IsSuccesful = false, Timestamp = DateTime.UtcNow, UpdatedById = "UserId" }
+          }
         }
       };
       yield return new object[]
@@ -306,8 +342,10 @@ namespace BigQuery.Schema.Helper.Test
             new BusinessTraceDataDetail() { Id = 2 },
             new BusinessTraceDataDetail() { Id = 2, Description = "Test Description" },
             new BusinessTraceDataDetail() { Id = 2, Description = "Test Description", IsSuccesful = false },
-            new BusinessTraceDataDetail() { Id = 2, Description = "Test Description", IsSuccesful = false, Timestamp = DateTime.UtcNow }
-          }
+            new BusinessTraceDataDetail() { Id = 2, Description = "Test Description", IsSuccesful = false, Timestamp = DateTime.UtcNow },
+            new BusinessTraceDataDetail() { Id = 2, Description = "Test Description", IsSuccesful = false, Timestamp = DateTime.UtcNow, UpdatedById = "UserId" }
+          },
+          PrivateDetail = new BusinessTraceDataDetail(){ Id = 1, Description = "Test Description", IsSuccesful = true, Timestamp = DateTime.Now, UpdatedById = "UserId" },
         }
       };
     }

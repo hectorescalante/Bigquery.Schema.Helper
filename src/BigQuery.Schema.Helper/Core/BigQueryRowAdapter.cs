@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 
 namespace BigQuery.Schema.Helper.Core
 {
@@ -19,6 +20,9 @@ namespace BigQuery.Schema.Helper.Core
       var newRow = new BigQueryInsertRow();
       foreach (var propertyItem in schemaType.GetProperties())
       {
+        if (IgnoreProperty(propertyItem.GetCustomAttribute<BigQuerySchemaAttribute>()))
+          continue;
+
         if (IsEnumerable(propertyItem.PropertyType))
         {
           var elementType = GetElementsType(propertyItem);

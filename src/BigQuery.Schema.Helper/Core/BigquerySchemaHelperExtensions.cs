@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BigQuery.Schema.Helper.Core
 {
-  public static class BigquerySchemaHelperExtensions
+  public static class BigQuerySchemaHelperExtensions
   {
     public static IServiceCollection AddBigQuerySchemaHelper(this IServiceCollection services, IConfigurationSection configurationSection)
     {

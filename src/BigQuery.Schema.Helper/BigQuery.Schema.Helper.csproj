@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Authors>HectorEscalante</Authors>
     <Company>BDTG</Company>
-    <VersionPrefix>1.0.3</VersionPrefix>
+    <VersionPrefix>1.0.4</VersionPrefix>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <Description>It's a helper for BigQuery's Table creation and data insertion.</Description>
+    <Description>It's a helper for BigQuery's Table creation and data insertion with support for nested and repeated fields.</Description>
     <RepositoryUrl>https://github.com/hectorescalante/dotnet-bigquery-schema-helper.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>

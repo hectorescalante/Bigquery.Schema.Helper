@@ -2,6 +2,7 @@
 using Google.Cloud.BigQuery.V2;
 using System;
 using System.Linq;
+using System.Reflection;
 
 namespace BigQuery.Schema.Helper.Core
 {
@@ -14,6 +15,9 @@ namespace BigQuery.Schema.Helper.Core
 
       foreach (var propertyItem in schemaType.GetProperties())
       {
+        if (IgnoreProperty(propertyItem.GetCustomAttribute<BigQuerySchemaAttribute>()))
+          continue;
+
         if (IsEnumerable(propertyItem.PropertyType))
         {
           var elementType = GetElementsType(propertyItem);

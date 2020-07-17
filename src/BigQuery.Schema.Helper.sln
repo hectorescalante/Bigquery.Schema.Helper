@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigQuery.Schema.Helper", "B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BigQuery.Schema.Helper.Test", "BigQuery.Schema.Helper.Test\BigQuery.Schema.Helper.Test.csproj", "{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BigQuery.Schema.Helper.Sample", "BigQuery.Schema.Helper.Sample\BigQuery.Schema.Helper.Sample.csproj", "{AEE598C4-A680-487B-82D3-D501F9C71C16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA62B63E-72E5-4215-A5EC-92DDAC6EE152}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE598C4-A680-487B-82D3-D501F9C71C16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE598C4-A680-487B-82D3-D501F9C71C16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE598C4-A680-487B-82D3-D501F9C71C16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE598C4-A680-487B-82D3-D501F9C71C16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

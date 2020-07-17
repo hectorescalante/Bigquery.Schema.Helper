@@ -22,5 +22,8 @@ namespace BigQuery.Schema.Helper.Core
 
     protected static Type GetElementsType(PropertyInfo property) =>
       property.PropertyType.GetGenericArguments().FirstOrDefault();
+
+    protected static bool IgnoreProperty(BigQuerySchemaAttribute schemaAttribute) => 
+      schemaAttribute != null && schemaAttribute.Ignore;
   }
 }

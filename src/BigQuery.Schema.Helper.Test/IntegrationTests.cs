@@ -19,7 +19,7 @@ namespace BigQuery.Schema.Helper.Test
     private readonly IFixture _autoFixture = new Fixture().Customize(new AutoMoqCustomization());
 
     [Fact]
-    public async void TestBigQuerySchemaHelper_WithSingleRow_ShouldInsertRows()
+    public async void TestBigQuerySchemaHelper_WithMocks_ShouldSuccess()
     {
       //Arrange
 
@@ -69,6 +69,5 @@ namespace BigQuery.Schema.Helper.Test
       Assert.NotNull(trace);
       Assert.NotNull(traces);
     }
-
   }
 }
