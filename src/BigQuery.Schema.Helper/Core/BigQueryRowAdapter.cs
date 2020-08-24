@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace BigQuery.Schema.Helper.Core
 {
-  internal class BigQueryRowAdapter : BigQueryCommon
+  public class BigQueryRowAdapter : BigQueryCommon
   {
     public static BigQueryInsertRow GetRowFromEntity(object entity, Type schemaType, string indent = "")
     {

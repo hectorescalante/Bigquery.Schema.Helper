@@ -6,9 +6,8 @@ using System.Reflection;
 
 namespace BigQuery.Schema.Helper.Core
 {
-  internal class BigQuerySchemaBuilder : BigQueryCommon
+  public class BigQuerySchemaBuilder : BigQueryCommon
   {
-
     public static TableSchemaBuilder GetSchemaBuilder(Type schemaType, string indent = "")
     {
       var schemaBuilder = new TableSchemaBuilder();

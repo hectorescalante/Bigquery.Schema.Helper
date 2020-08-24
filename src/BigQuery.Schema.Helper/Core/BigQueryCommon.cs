@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace BigQuery.Schema.Helper.Core
 {
-  internal class BigQueryCommon
+  public class BigQueryCommon
   {
     protected static readonly string _spaces = "  ";
 
