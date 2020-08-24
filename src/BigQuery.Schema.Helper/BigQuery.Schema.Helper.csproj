@@ -5,10 +5,10 @@
     <LangVersion>8.0</LangVersion>
     <Authors>HectorEscalante</Authors>
     <Company>BDTG</Company>
-    <VersionPrefix>1.0.4</VersionPrefix>
+    <VersionPrefix>1.0.5</VersionPrefix>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Description>It's a helper for BigQuery's Table creation and data insertion with support for nested and repeated fields.</Description>
-    <RepositoryUrl>https://github.com/hectorescalante/dotnet-bigquery-schema-helper.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/hectorescalante/Bigquery.Schema.Helper.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
